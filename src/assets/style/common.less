@@ -1,0 +1,146 @@
+/**
+  @class最外层的类名
+  @backcolor 头部和菜单栏的背景色
+  @isActiveBackcolor 菜单选中的背景色
+  @isActiveColor 菜单选中的字体颜色（所有的需要高亮的黄色字体）
+  @fcolor: 正常的黑色字体
+  @fcolor1: 需要有区别的字体颜色，例如三级菜单
+**/
+.theme(@class:one, @backcolor:#fff, @isActiveBackcolor:#f7f7f7,@isActiveColor:#ff5e25, @fcolor:#333,@fcolor1:#666) {
+  // 实现换肤功能
+  .@{class}-skin {
+    height: 100%;
+    // 头部所有样式
+    .system-header {
+      padding: 0 !important;
+      background-color: @backcolor;
+      line-height: 50px;
+      //box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+      .header-top {
+        height: 40px;
+        padding: 0 20px;
+        line-height: 40px;
+        font-size: 14px;
+        border-bottom: solid thin #eee;
+        .official-phone {
+          float: left;
+          .phone {
+            color: @isActiveColor;
+            margin-left: 15px;
+          }
+        }
+        .date-time {
+          float: right;
+          .time {
+            margin-left: 10px;
+          }
+        }
+      }
+      .header-bottom {
+        padding: 0 20px;
+        height: 60px;
+        line-height: 60px;
+        img {
+          float: left;
+          width: 45px;
+          height: 40px;
+          margin-top: 10px;
+        }
+        .system-name {
+          float: left;
+          margin-left: 12px;
+          font-size: 24px;
+          margin-right: 29px;
+        }
+        .header-menu {
+          float: left;
+          margin-top: 18px;
+          height: 23px;
+          line-height: 23px;
+          font-size: 18px;
+          span {
+            display: inline-block;
+            padding: 0 25px;
+            cursor: pointer;
+            &:hover {
+              color: @isActiveColor;
+            }
+          }
+          & > span:first-child {
+            padding-left: 36px !important;
+            border-left: solid thin #eee;
+          }
+          .isActive {
+            color: @isActiveColor;
+          }
+        }
+        .userInfo {
+          float: right;
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            margin-top: 15px;
+          }
+          .username {
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+    // 菜单和容器样式
+    .el-container {
+      padding: 20px;
+      .el-col {
+        height: 100%;
+      }
+      .system-aside {
+        background-color: @backcolor;
+        height: 100%;
+
+        .el-menu {
+          border-right: none;
+          background-color: @backcolor;
+          text-align: left;
+          font-weight: bold;
+          .el-submenu__title {
+            font-size: 16px;
+            color: @fcolor;
+          }
+          .el-submenu__title:hover {
+            background-color: @backcolor;
+          }
+          .el-submenu__title:focus {
+            background-color: @backcolor;
+          }
+          .el-menu-item {
+            color: #b5b5b5;
+          }
+          .is-active {
+            color: @isActiveColor;
+          }
+          .el-menu-item:focus {
+            background-color: @backcolor;
+          }
+          .el-menu-item:hover {
+            background-color: @isActiveBackcolor;
+          }
+          .el-menu-item-group__title {
+            padding: 0;
+          }
+        }
+      }
+      .system-main {
+        height: 100%;
+        padding: 0 !important;
+        margin-left: 20px;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+#app {
+  height: 100%;
+  .theme(one,#fff,#f7f7f7,#ff5e25,#333,#666);
+}
